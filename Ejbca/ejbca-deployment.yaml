@@ -1,0 +1,28 @@
+# ejbca-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ejbca
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ejbca
+  template:
+    metadata:
+      labels:
+        app: ejbca
+    spec:
+      containers:
+        - name: ejbca
+          image: keyfactor/ejbca-ce
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MYSQL_SERVER
+              value: mysql
+            - name: MYSQL_USER
+              value: root
+            - name: MYSQL_PASSWORD
+              value: password
+
