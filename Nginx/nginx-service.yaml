@@ -4,7 +4,6 @@ metadata:
   name: nginx-proxy
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
-    service.beta.kubernetes.io/aws-load-balancer-type: "nlb" # Optionally use "nlb" for Network Load Balancer
 spec:
   type: LoadBalancer
   ports:
