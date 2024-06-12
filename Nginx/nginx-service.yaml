@@ -2,10 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-proxy
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
 spec:
   type: LoadBalancer
+  loadBalancerIP: 52.86.192.126
   ports:
     - port: 80
       targetPort: 80
