@@ -19,9 +19,13 @@ spec:
           ports:
             - containerPort: 3000
           env:
-            - name: DATABASE_TYPE
+            - name: MYSQL_SERVER
               value: mysql
-            - name: DB_HOST
-              value: mysql
-            - name: DB_PORT
+            - name: MYSQL_USER
+              value: wikijs
+            - name: MYSQL_PASS
+              value: wikijsrocks
+            - name: MYSQL_NAME
+              value: wiki
+            - name: MYSQL_PORT
               value: "3306"
