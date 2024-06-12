@@ -25,9 +25,3 @@ spec:
               value: mysql
             - name: DB_PORT
               value: "3306"
-            - name: DB_USER
-              value: wikijs
-            - name: DB_PASS
-              value: wikijsrocks
-            - name: DB_NAME
-              value: wiki
