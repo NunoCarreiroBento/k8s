@@ -22,12 +22,12 @@ spec:
             - name: DATABASE_TYPE
               value: mysql
             - name: DB_HOST
-              value: mysql-host
+              value: mysql
             - name: DB_PORT
               value: "3306"
             - name: DB_USER
-              value: wikijs-user
+              value: wikijs
             - name: DB_PASS
-              value: your-password
+              value: wikijsrocks
             - name: DB_NAME
-              value: wikijs-db
+              value: wiki
