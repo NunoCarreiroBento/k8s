@@ -18,3 +18,16 @@ spec:
           image: ghcr.io/requarks/wiki:2
           ports:
             - containerPort: 3000
+          env:
+            - name: DATABASE_TYPE
+              value: mysql
+            - name: DB_HOST
+              value: mysql-host
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_USER
+              value: wikijs-user
+            - name: DB_PASS
+              value: your-password
+            - name: DB_NAME
+              value: wikijs-db
