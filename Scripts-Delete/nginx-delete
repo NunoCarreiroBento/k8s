@@ -1,0 +1,5 @@
+#!/bin/bash
+
+kubectl delete services nginx-proxy
+kubectl delete deployment.apps nginx-proxy
+echo "kubectl delete pod nginx-proxy"
