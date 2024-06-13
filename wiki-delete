@@ -1,5 +1,5 @@
 #!/bin/bash
 
-kubectl delete services wiki
-kubectl delete deployment.apps wiki
-echo "kubectl delete pod wiki"
+kubectl delete services wikijs
+kubectl delete deployment.apps wikijs
+echo "kubectl delete pod wikijs"
