@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo "Iniciando iniciação"
-./ejbca-delete
-./onetime-delete
-./plik-delete
-./wiki-delete
+./Scripts-Delete/ejbca-delete
+./Scripts-Delete/onetime-delete
+./Scripts-Delete/plik-delete
+./Scripts-Delete/wiki-delete
 echo "Complete"
 
 
