@@ -32,7 +32,9 @@ metadata:
   name: nginx-proxy
 spec:
   type: LoadBalancer
-  loadBalancerIP: 3.216.77.168
+  external.ip:
+    - 3.216.77.168
+  #loadBalancerIP: 3.216.77.168
   ports:
     - port: 80
       targetPort: 80
