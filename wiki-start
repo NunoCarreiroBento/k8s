@@ -6,13 +6,13 @@ echo "Create a deployment for a wiki"
 kubectl apply -f wiki-deployment.yaml
 
 sleep 2
-kubectl get pods -l app=wiki
+kubectl get pods -l app=wikijs
 
 echo "Expose the wiki application deployment using a NodePort service"
-kubectl expose deployment wiki --port 3000 --type NodePort
+kubectl expose deployment wikijs --port 3000 --type NodePort
 
 echo "Retrieve the node port assigned to the wiki service"
-NODE_PORT=$(kubectl get svc wiki \
+NODE_PORT=$(kubectl get svc wikijs \
   --output=jsonpath='{range .spec.ports[0]}{.nodePort}')
 
 echo "Allow remote access to wiki node port"
