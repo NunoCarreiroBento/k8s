@@ -1,0 +1,5 @@
+#!/bin/bash
+
+kubectl delete services onetimesecret
+kubectl delete deployment.apps onetimesecret
+echo "kubectl delete pod onetimesecret"
