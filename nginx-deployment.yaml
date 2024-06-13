@@ -25,3 +25,16 @@ spec:
         - name: nginx-config-volume
           configMap:
             name: nginx-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-proxy
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 52.86.192.126
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: nginx-proxy
