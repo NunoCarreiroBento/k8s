@@ -25,4 +25,13 @@ spec:
               value: root
             - name: MYSQL_PASSWORD
               value: password
-
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ejbca
+spec:
+  ports:
+    - port: 8080
+  selector:
+    app: ejbca
