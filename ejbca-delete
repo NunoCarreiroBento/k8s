@@ -1,0 +1,5 @@
+#!/bin/bash
+
+kubectl delete services ejbca
+kubectl delete deployment.apps ejbca
+echo "kubectl delete pod ejbca"
