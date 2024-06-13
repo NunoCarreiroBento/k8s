@@ -3,7 +3,7 @@
 source public-ip-addresses
 
 echo "Create a deployment for a Ejbca"
-kubectl apply -f ejbca-deployment.yaml
+kubectl apply -f ./Deployments/ejbca-deployment.yaml
 
 sleep 2
 kubectl get pods -l app=ejbca

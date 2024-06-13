@@ -3,7 +3,7 @@
 source public-ip-addresses
 
 echo "Create a deployment for a wiki"
-kubectl apply -f wiki-deployment.yaml
+kubectl apply -f ./Deployments/wiki-deployment.yaml
 
 sleep 2
 kubectl get pods -l app=wikijs

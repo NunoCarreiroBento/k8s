@@ -3,7 +3,7 @@
 source public-ip-addresses
 
 echo "Create a deployment for a onetimesecret"
-kubectl apply -f onetimesecret-deployment.yaml
+kubectl apply -f ./Deployments/onetimesecret-deployment.yaml
 
 sleep 2
 kubectl get pods -l app=onetimesecret

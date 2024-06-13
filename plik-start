@@ -3,7 +3,7 @@
 source public-ip-addresses
 
 echo "Create a deployment for a plik"
-kubectl apply -f plik-deployment.yaml
+kubectl apply -f ./Deployments/plik-deployment.yaml
 
 sleep 2
 kubectl get pods -l app=plik

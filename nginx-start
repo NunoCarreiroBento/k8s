@@ -3,7 +3,7 @@
 source public-ip-addresses
 
 echo "Create a deployment for a nginx"
-kubectl apply -f nginx-deployment.yaml
+kubectl apply -f ./Deployments/nginx-deployment.yaml
 
 sleep 2
 kubectl get pods -l app=nginx-proxy
