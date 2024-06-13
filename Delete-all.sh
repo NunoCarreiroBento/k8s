@@ -5,6 +5,7 @@ echo "Iniciando iniciação"
 ./Scripts-Delete/onetime-delete
 ./Scripts-Delete/plik-delete
 ./Scripts-Delete/wiki-delete
+./Scripts-Delete/nginx-delete
 echo "Complete"
 
 
