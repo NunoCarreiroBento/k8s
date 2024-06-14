@@ -30,5 +30,5 @@ echo "Retrieve the external IP address of a worker instance"
 EXTERNAL_IP=${PUBLIC_ADDRESS[worker-0]}
 echo "${EXTERNAL_IP}"
 
-echo "Make an HTTP request using the external IP address and the nginx node port"
-curl -I http://"${EXTERNAL_IP}":"${NODE_PORT}"
+#echo "Make an HTTP request using the external IP address and the nginx node port"
+#curl -I http://"${EXTERNAL_IP}":"${NODE_PORT}"
