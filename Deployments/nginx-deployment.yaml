@@ -75,7 +75,7 @@ spec:
   #loadBalancerIP: 3.216.77.168
   ports:
     - port: 80
-      targetPort: 31242
+      targetPort: 80
       protocol: TCP
       name: http
   selector:
