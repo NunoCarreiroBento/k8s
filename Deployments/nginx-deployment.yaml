@@ -101,8 +101,8 @@ spec:
   externalIPs:
     - 3.216.77.168
   #loadBalancerIP: 3.216.77.168
-  #ports:
-  #  - port: 80
-  #    targetPort: 80
+  ports:
+    - port: 80
+      targetPort: 80
   selector:
     app: nginx-proxy

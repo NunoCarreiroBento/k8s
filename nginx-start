@@ -8,9 +8,9 @@ kubectl apply -f ./Deployments/nginx-deployment.yaml
 sleep 2
 kubectl get pods -l app=nginx-proxy
 
-echo "Expose the nginx application deployment using a NodePort service"
+#echo "Expose the nginx application deployment using a NodePort service"
 #kubectl expose deployment nginx-proxy --port 80 --type LoadBalancer
-kubectl expose deployment nginx-proxy --type=LoadBalancer --port=80 --target-port=80
+#kubectl expose deployment nginx-proxy --type=LoadBalancer --port=80 --target-port=80
 
 echo "Retrieve the node port assigned to the nginx service"
 NODE_PORT=$(kubectl get svc nginx-proxy \
