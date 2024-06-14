@@ -26,15 +26,15 @@ spec:
             - name: MYSQL_PASSWORD
               value: password
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: ejbca
-spec:
-  type: ClusterIP
-  clusterIP: 10.32.0.54  # Replace with your desired static IP address
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: ejbca
+#spec:
+#  type: ClusterIP
+#  clusterIP: 10.32.0.54  # Replace with your desired static IP address
   #ports:
   #  - port: 8080  # Port on the service
   #    targetPort: 8080  # Port on the pods
-  selector:
-    app: ejbca
+#  selector:
+#    app: ejbca
