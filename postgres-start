@@ -9,7 +9,7 @@ sleep 2
 kubectl get pods -l app=postgres
 
 echo "Expose the postgres application deployment using a NodePort service"
-kubectl expose deployment postgres --port 7143 --type NodePort
+kubectl expose deployment postgres --port 5432 --type NodePort
 
 echo "Retrieve the node port assigned to the postgres service"
 NODE_PORT=$(kubectl get svc postgres \
