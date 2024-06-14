@@ -64,6 +64,23 @@ data:
       }
     }
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-proxy
+spec:
+  type: LoadBalancer
+  externalIPs:
+    - 3.216.77.168
+  #loadBalancerIP: 3.216.77.168
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  selector:
+    app: nginx-proxy
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -91,20 +108,4 @@ spec:
         - name: nginx-config-volume
           configMap:
             name: nginx-config
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-proxy
-spec:
-  type: LoadBalancer
-  externalIPs:
-    - 3.216.77.168
-  #loadBalancerIP: 3.216.77.168
-  ports:
-    - port: 80
-      targetPort: 80
-      protocol: TCP
-      name: http
-  selector:
-    app: nginx-proxy
+
