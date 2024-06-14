@@ -9,6 +9,8 @@ sleep 5
 sleep 5
 ./plik-start
 sleep 5
+./postgres-start
+sleep 5
 ./wiki-start
 echo "Complete"
 
