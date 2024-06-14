@@ -1,3 +1,69 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |
+    events {
+      worker_connections 1024;
+    }
+    http {
+      include /etc/nginx/mime.types;
+      default_type application/octet-stream;
+
+      #server {
+      #  listen 80;
+      #  server_name ejbca-nuno.myftp.biz;
+
+      #  location / {
+      #    proxy_pass http://ejbca:8080;
+      #    proxy_set_header Host $host;
+      #    proxy_set_header X-Real-IP $remote_addr;
+      #    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      #    proxy_set_header X-Forwarded-Proto $scheme;
+      #  }
+      #}
+
+      server {
+        listen 80;
+        server_name wiki-nuno.myftp.biz;
+
+        location / {
+          proxy_pass http://wikijs:3000;
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $scheme;
+        }
+      }
+
+      server {
+        listen 80;
+        server_name plik-nuno.myftp.biz;
+
+        location / {
+          proxy_pass http://plik:8080;
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $scheme;
+        }
+      }
+
+      server {
+        listen 80;
+        server_name onetime-nuno.myftp.biz;
+
+        location / {
+          proxy_pass http://onetimesecret:7143;
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $scheme;
+        }
+      }
+    }
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -35,8 +101,8 @@ spec:
   externalIPs:
     - 3.216.77.168
   #loadBalancerIP: 3.216.77.168
-  ports:
-    - port: 80
-      targetPort: 80
+  #ports:
+  #  - port: 80
+  #    targetPort: 80
   selector:
     app: nginx-proxy
