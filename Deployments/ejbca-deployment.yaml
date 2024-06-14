@@ -33,6 +33,8 @@ metadata:
 spec:
   type: ClusterIP
   clusterIP: 10.32.0.196
+  selector:
+    app: ejbca
 #kind: Service
 #metadata:
 #  name: ejbca
