@@ -9,7 +9,7 @@ kubectl create secret generic nuno.myftp.biz \
 # Apply the Ingress resource
 #kubectl apply -f ingress-resource.yaml
 
-kubectl apply -f Deployment/nginx-deployment.yaml
+kubectl apply -f Deployments/nginx-deployment.yaml
 
 #kubectl get all -n ingress-nginx
 
