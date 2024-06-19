@@ -114,9 +114,9 @@ spec:
           volumeMounts:
             - name: nginx-config-volume
               mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
             - name: nginx-certs
               mountPath: /etc/nginx/certs
-              subPath: nginx.conf
       volumes:
         - name: nginx-config-volume
         - name: nginx-certs
