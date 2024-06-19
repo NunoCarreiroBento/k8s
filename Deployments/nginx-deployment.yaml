@@ -52,7 +52,7 @@ data:
 
       server {
         listen 80;
-        server_name onetime-nuno.myftp.biz;
+        server_name onetimesecret-nuno.myftp.biz;
 
         location / {
           proxy_pass http://onetimesecret:7143;
