@@ -83,6 +83,11 @@ spec:
       nodePort: 30144
       protocol: TCP
       name: http
+    - port: 443
+      targetPort: 443
+      nodePort: 30145
+      protocol: TCP
+      name: http
   selector:
     app: nginx-proxy
 ---
@@ -105,12 +110,16 @@ spec:
           image: nginx:latest
           ports:
             - containerPort: 80
+            - containerPort: 443
           volumeMounts:
             - name: nginx-config-volume
               mountPath: /etc/nginx/nginx.conf
+            - name: nginx-certs
+              mountPath: /etc/nginx/certs
               subPath: nginx.conf
       volumes:
         - name: nginx-config-volume
+        - name: nginx-certs
           configMap:
             name: nginx-config
 
