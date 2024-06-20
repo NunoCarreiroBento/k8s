@@ -38,7 +38,7 @@ data:
       }
 
       server {
-        listen 443;
+        listen 443 ssl;
         server_name plik-nuno.myftp.biz;
     
         ssl_certificate /etc/nginx/certs/fullchain.pem;
@@ -122,5 +122,7 @@ spec:
           configMap:
             name: nginx-config
         - name: nginx-certs
+          secret:
+            secretName: nuno.myftp.biz
 
 
