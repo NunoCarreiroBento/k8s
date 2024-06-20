@@ -12,7 +12,7 @@ data:
       default_type application/octet-stream;
 
       server {
-        listen 443 sll;
+        listen 443 ssl;
         server_name ejbca-nuno.myftp.biz;
     
         ssl_certificate /etc/nginx/certs/fullchain.pem;
