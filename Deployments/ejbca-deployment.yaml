@@ -25,13 +25,13 @@ spec:
               value: root
             - name: MYSQL_PASSWORD
               value: password
-          volumeMounts:
-            - name: ejbca-certs
-              mountPath: /etc/ejbca/certs
-      volumes:
-        - name: ejbca-certs
-          secret:
-            secretName: nuno.myftp.biz
+      #    volumeMounts:
+      #      - name: ejbca-certs
+      #        mountPath: /etc/ejbca/certs
+      #volumes:
+      #  - name: ejbca-certs
+      #    secret:
+      #      secretName: nuno.myftp.biz
 ---
 #apiVersion: v1
 #kind: Service
