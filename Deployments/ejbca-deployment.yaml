@@ -17,7 +17,7 @@ spec:
         - name: ejbca
           image: keyfactor/ejbca-ce
           ports:
-            - containerPort: 8080
+            - containerPort: 8443
           env:
             - name: MYSQL_SERVER
               value: mysql
