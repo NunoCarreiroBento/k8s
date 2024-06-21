@@ -28,6 +28,24 @@ data:
             return 301 https://$host$request_uri;
         }
       }
+    
+      server {
+        listen 80;
+        server_name plik-nuno.myftp.biz;
+
+        location / {
+            return 301 https://$host$request_uri;
+        }
+      }
+      
+      server {
+        listen 80;
+        server_name onetimesecret-nuno.myftp.biz;
+
+        location / {
+            return 301 https://$host$request_uri;
+        }
+      }
 
       server {
         listen 443 ssl;
@@ -62,9 +80,13 @@ data:
       }
 
       server {
-        listen 80;
+        listen 443 ssl;
         server_name plik-nuno.myftp.biz;
-
+    
+        ssl_certificate /etc/nginx/certs/fullchain.pem;
+        ssl_certificate_key /etc/nginx/certs/privkey.pem;
+    
+    
         location / {
           proxy_pass http://plik.default.svc.cluster.local:8080;
           proxy_set_header Host $host;
@@ -75,8 +97,11 @@ data:
       }
 
       server {
-        listen 80;
-        server_name onetime-nuno.myftp.biz;
+        listen 443 ssl;
+        server_name onetimesecret-nuno.myftp.biz;
+    
+        ssl_certificate /etc/nginx/certs/fullchain.pem;
+        ssl_certificate_key /etc/nginx/certs/privkey.pem;
 
         location / {
           proxy_pass http://onetimesecret.default.svc.cluster.local:7143;
@@ -87,6 +112,7 @@ data:
         }
       }
     }
+
 ---
 apiVersion: v1
 kind: Service
