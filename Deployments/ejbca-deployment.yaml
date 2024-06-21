@@ -18,7 +18,7 @@ spec:
           image: keyfactor/ejbca-ce
           ports:
             - containerPort: 8080
-            #- containerPort: 8443
+            - containerPort: 8443
           env:
             - name: MYSQL_DATABASE
               value: ejbca_db
@@ -48,6 +48,6 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
-    #- protocol: TCP
-    #  port: 8443
-    #  targetPort: 8443
+    - protocol: TCP
+      port: 8443
+      targetPort: 8443

@@ -14,12 +14,107 @@ data:
       server {
         listen 80;
         server_name ejbca-nuno.myftp.biz;
-    
-        #ssl_certificate /etc/nginx/certs/fullchain.pem;
-        #ssl_certificate_key /etc/nginx/certs/privkey.pem;
 
         location / {
-          proxy_pass http://ejbca.default.svc.cluster.local:8080;
+            return 301 https://$host$request_uri;
+        }
+      }
+    
+      server {
+          listen 80;
+          server_name ejbca-nuno.myftp.biz;
+    
+          location / {
+              rewrite ^/(.*)$ https://$server_name/$1 permanent;
+          }
+      }      
+    
+      server {
+        listen 80;
+        server_name wiki-nuno.myftp.biz;
+
+        location / {
+            return 301 https://$host$request_uri;
+        }
+      }
+    
+      server {
+        listen 80;
+        server_name plik-nuno.myftp.biz;
+
+        location / {
+            return 301 https://$host$request_uri;
+        }
+      }
+    
+      server {
+        listen 80;
+        server_name onetimesecret-nuno.myftp.biz;
+
+        location / {
+            return 301 https://$host$request_uri;
+        }
+      }
+
+      server {
+        listen 443 ssl;
+        server_name ejbca-nuno.myftp.biz;
+
+        ssl_certificate /etc/nginx/certs/fullchain.pem;
+        ssl_certificate_key /etc/nginx/certs/privkey.pem;
+
+        location / {
+            proxy_pass https://ejbca.default.svc.cluster.local:8443;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+    
+        }
+      }
+
+      server {
+        listen 443 ssl;
+        server_name wiki-nuno.myftp.biz;
+    
+        ssl_certificate /etc/nginx/certs/fullchain.pem;
+        ssl_certificate_key /etc/nginx/certs/privkey.pem;
+
+        location / {
+          proxy_pass http://wikijs.default.svc.cluster.local:3000;
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $scheme;
+        }
+      }
+
+      server {
+        listen 443 ssl;
+        server_name plik-nuno.myftp.biz;
+    
+        ssl_certificate /etc/nginx/certs/fullchain.pem;
+        ssl_certificate_key /etc/nginx/certs/privkey.pem;
+    
+    
+        location / {
+          proxy_pass http://plik.default.svc.cluster.local:8080;
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $scheme;
+        }
+      }
+
+      server {
+        listen 443 ssl;
+        server_name onetimesecret-nuno.myftp.biz;
+    
+        ssl_certificate /etc/nginx/certs/fullchain.pem;
+        ssl_certificate_key /etc/nginx/certs/privkey.pem;
+
+        location / {
+          proxy_pass http://onetimesecret.default.svc.cluster.local:7143;
           proxy_set_header Host $host;
           proxy_set_header X-Real-IP $remote_addr;
           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
