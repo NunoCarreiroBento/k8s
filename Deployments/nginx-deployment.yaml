@@ -12,11 +12,14 @@ data:
       default_type application/octet-stream;
 
       server {
-        listen 80;
+        listen 443 ssl;
         server_name ejbca-nuno.myftp.biz;
+    
+        ssl_certificate /etc/nginx/certs/fullchain.pem;
+        ssl_certificate_key /etc/nginx/certs/privkey.pem;
 
         location / {
-          proxy_pass http://ejbca:8080;
+          proxy_pass http://ejbca.default.svc.cluster.local:8443;
           proxy_set_header Host $host;
           proxy_set_header X-Real-IP $remote_addr;
           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -79,6 +82,11 @@ spec:
       nodePort: 30144
       protocol: TCP
       name: http
+    - port: 443
+      targetPort: 443
+      nodePort: 30145
+      protocol: TCP
+      name: https
   selector:
     app: nginx-proxy
 ---
@@ -101,11 +109,17 @@ spec:
           image: nginx:latest
           ports:
             - containerPort: 80
+            - containerPort: 443
           volumeMounts:
             - name: nginx-config-volume
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
+            - name: nginx-certs
+              mountPath: /etc/nginx/certs
       volumes:
         - name: nginx-config-volume
           configMap:
             name: nginx-config
+        - name: nginx-certs
+          secret:
+            secretName: nuno.myftp.biz
