@@ -32,7 +32,7 @@ data:
         server_name wiki-nuno.myftp.biz;
 
         location / {
-          proxy_pass http://wikijs:3000;
+          proxy_pass http://wikijs.default.svc.cluster.local:3000;
           proxy_set_header Host $host;
           proxy_set_header X-Real-IP $remote_addr;
           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -45,7 +45,7 @@ data:
         server_name plik-nuno.myftp.biz;
 
         location / {
-          proxy_pass http://plik:8080;
+          proxy_pass http://plik.default.svc.cluster.local:8080;
           proxy_set_header Host $host;
           proxy_set_header X-Real-IP $remote_addr;
           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -58,7 +58,7 @@ data:
         server_name onetime-nuno.myftp.biz;
 
         location / {
-          proxy_pass http://onetimesecret:7143;
+          proxy_pass http://onetimesecret.default.svc.cluster.local:7143;
           proxy_set_header Host $host;
           proxy_set_header X-Real-IP $remote_addr;
           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
