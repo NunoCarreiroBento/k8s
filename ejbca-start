@@ -9,7 +9,7 @@ sleep 2
 kubectl get pods -l app=ejbca
 
 echo "Expose the ejbca application deployment using a NodePort service"
-kubectl expose deployment ejbca --port 8443 --type NodePort
+kubectl expose deployment ejbca --port 8080 --type NodePort
 
 echo "Retrieve the node port assigned to the ejbca service"
 NODE_PORT=$(kubectl get svc ejbca \
