@@ -28,8 +28,11 @@ data:
       }
 
       server {
-        listen 80;
+        listen 443 ssl;
         server_name wiki-nuno.myftp.biz;
+    
+        ssl_certificate /etc/nginx/certs/fullchain.pem;
+        ssl_certificate_key /etc/nginx/certs/privkey.pem;
 
         location / {
           proxy_pass http://wikijs.default.svc.cluster.local:3000;
