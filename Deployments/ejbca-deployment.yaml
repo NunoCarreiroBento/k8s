@@ -20,12 +20,14 @@ spec:
             - containerPort: 8080
             #- containerPort: 8443
           env:
-            - name: MYSQL_SERVER
-              value: mysql
+            - name: MYSQL_DATABASE
+              value: ejbca_db
             - name: MYSQL_USER
-              value: root
+              value: ejbca_user
             - name: MYSQL_PASSWORD
-              value: password
+              value: passw0rd
+            - name: MYSQL_HOST
+              value: mysql
 ---
 apiVersion: v1
 kind: Service

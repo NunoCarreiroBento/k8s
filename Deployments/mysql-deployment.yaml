@@ -15,11 +15,17 @@ spec:
         app: mysql
     spec:
       containers:
-        - image: mysql:5.6
+        - image: mysql:5.7
           name: mysql
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: password
+              value: passw0rdd
+            - name: MYSQL_DATABASE
+              value: ejbca_db
+            - name: MYSQL_USER
+              value: ejbca_user
+            - name: MYSQL_PASSWORD
+              value: passw0rd
           ports:
             - containerPort: 3306
               name: mysql
@@ -30,6 +36,9 @@ metadata:
   name: mysql
 spec:
   ports:
-    - port: 3306
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+  type: NodePort
   selector:
     app: mysql

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+kubectl delete services mysql
+kubectl delete deployment.apps mysql
+echo "kubectl delete pod mysql"
