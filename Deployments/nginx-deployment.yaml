@@ -28,7 +28,7 @@ data:
       }
 
       server {
-        listen 443;
+        listen 443 ssl;
         server_name wiki-nuno.myftp.biz;
     
         ssl_certificate /etc/nginx/certs/fullchain.pem;
@@ -44,7 +44,7 @@ data:
       }
 
       server {
-        listen 443;
+        listen 443 ssl;
         server_name plik-nuno.myftp.biz;
     
         ssl_certificate /etc/nginx/certs/fullchain.pem;
@@ -61,7 +61,7 @@ data:
       }
 
       server {
-        listen 443;
+        listen 443 ssl;
         server_name onetimesecret-nuno.myftp.biz;
     
         ssl_certificate /etc/nginx/certs/fullchain.pem;
