@@ -21,6 +21,15 @@ data:
       }
     
       server {
+          listen 80;
+          server_name ejbca-nuno.myftp.biz;
+    
+          location / {
+              rewrite ^/(.*)$ https://$server_name/$1 permanent;
+          }
+      }      
+    
+      server {
         listen 80;
         server_name wiki-nuno.myftp.biz;
 
@@ -50,16 +59,17 @@ data:
       server {
         listen 443 ssl;
         server_name ejbca-nuno.myftp.biz;
-    
+
         ssl_certificate /etc/nginx/certs/fullchain.pem;
         ssl_certificate_key /etc/nginx/certs/privkey.pem;
 
         location / {
-          proxy_pass http://ejbca.default.svc.cluster.local:8080;
-          proxy_set_header Host $host;
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_pass https://ejbca.default.svc.cluster.local:8443;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+          
         }
       }
 
