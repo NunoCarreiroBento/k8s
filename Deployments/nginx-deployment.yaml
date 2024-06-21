@@ -11,14 +11,14 @@ data:
       include /etc/nginx/mime.types;
       default_type application/octet-stream;
     
-      server {
-        listen 80;
-        server_name ejbca-nuno.myftp.biz;
+      #server {
+      #  listen 80;
+      #  server_name ejbca-nuno.myftp.biz;
 
-        location / {
-            return 301 https://$host$request_uri;
-        }
-      }
+      #  location / {
+      #      return 301 https://$host$request_uri;
+      #  }
+      #}
     
       server {
         listen 80;
@@ -48,11 +48,11 @@ data:
       }
 
       server {
-        listen 443 ssl;
+        listen 80;
         server_name ejbca-nuno.myftp.biz;
     
-        ssl_certificate /etc/nginx/certs/fullchain.pem;
-        ssl_certificate_key /etc/nginx/certs/privkey.pem;
+        #ssl_certificate /etc/nginx/certs/fullchain.pem;
+        #ssl_certificate_key /etc/nginx/certs/privkey.pem;
 
         location / {
           proxy_pass http://ejbca.default.svc.cluster.local:8080;
