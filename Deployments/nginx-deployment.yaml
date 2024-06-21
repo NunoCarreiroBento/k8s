@@ -19,6 +19,15 @@ data:
             return 301 https://$host$request_uri;
         }
       }
+    
+      server {
+        listen 80;
+        server_name wiki-nuno.myftp.biz;
+
+        location / {
+            return 301 https://$host$request_uri;
+        }
+      }
 
       server {
         listen 443 ssl;
