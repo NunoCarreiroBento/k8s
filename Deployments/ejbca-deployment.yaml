@@ -28,6 +28,13 @@ spec:
               value: passw0rd
             - name: MYSQL_HOST
               value: mysql
+          volumeMounts:
+            - name: ejbca-certs
+              mountPath: /etc/ejbca/certs
+      volumes:
+        - name: ejbca-certs
+          secret:
+            secretName: nuno.myftp.biz
 ---
 apiVersion: v1
 kind: Service
