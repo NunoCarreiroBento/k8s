@@ -27,15 +27,6 @@ data:
           location / {
               rewrite ^/(.*)$ https://$server_name/$1 permanent;
           }
-      }      
-    
-      server {
-        listen 80;
-        server_name wiki-nuno.myftp.biz;
-
-        location / {
-            return 301 https://$host$request_uri;
-        }
       }
     
       server {
@@ -50,6 +41,15 @@ data:
       server {
         listen 80;
         server_name onetimesecret-nuno.myftp.biz;
+
+        location / {
+            return 301 https://$host$request_uri;
+        }
+      }
+    
+      server {
+        listen 80;
+        server_name wiki-nuno.myftp.biz;
 
         location / {
             return 301 https://$host$request_uri;
